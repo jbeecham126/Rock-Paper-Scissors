@@ -6,7 +6,7 @@ window = t.Tk()
 window.title("Rock, Paper, Scissors")
 window.geometry("400x600")
 
-# Handshapes
+# Pictures
 rock_image = ImageTk.PhotoImage(Image.open("rock.jpeg"))
 
 paper_image = ImageTk.PhotoImage(Image.open("paper.jpeg"))
