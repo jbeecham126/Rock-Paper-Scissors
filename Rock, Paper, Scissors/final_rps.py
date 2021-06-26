@@ -4,7 +4,7 @@ from PIL import ImageTk, Image
 
 window = t.Tk()
 window.title("Rock, Paper, Scissors")
-window.geometry("400x700")
+window.geometry("400x600")
 
 # Handshapes
 rock_image = ImageTk.PhotoImage(Image.open("rock.jpeg"))
@@ -135,10 +135,10 @@ button_paper.pack()
 button_scissors = t.Button(window, text="Scissors", command = scissors)
 button_scissors.pack()
 
-label_computer_choice = t.Label(window, justify=t.LEFT, font="Courier", image="")
+label_computer_choice = t.Label(window, justify=t.LEFT, image="")
 label_computer_choice.pack()
 
-label_user_choice = t.Label(window, justify=t.LEFT, font="Courier", image="")
+label_user_choice = t.Label(window, justify=t.LEFT, image="")
 label_user_choice.pack()
 
 label_result = t.Label(window, text="Choose...")
