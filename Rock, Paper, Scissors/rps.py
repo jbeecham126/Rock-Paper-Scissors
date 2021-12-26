@@ -7,11 +7,14 @@ window.title("Rock, Paper, Scissors")
 window.geometry("400x600")
 
 # Pictures
-rock_image = ImageTk.PhotoImage(Image.open("rock.jpeg"))
+image_1 = Image.open("rock.jpeg")
+rock_image = ImageTk.PhotoImage(image_1)
 
-paper_image = ImageTk.PhotoImage(Image.open("paper.jpeg"))
+image_2 = Image.open("paper.jpeg")
+paper_image = ImageTk.PhotoImage(image_2)
 
-scissors_image = ImageTk.PhotoImage(Image.open("scissors.png"))
+image_3 = Image.open("scissors.png")
+scissors_image = ImageTk.PhotoImage(image_3)
 
 # Create Functions
 def computer():
@@ -135,10 +138,10 @@ button_paper.pack()
 button_scissors = t.Button(window, text="Scissors", command = scissors)
 button_scissors.pack()
 
-label_computer_choice = t.Label(window, justify=t.LEFT, image="")
+label_computer_choice = t.Label(window, image="")
 label_computer_choice.pack()
 
-label_user_choice = t.Label(window, justify=t.LEFT, image="")
+label_user_choice = t.Label(window, image="")
 label_user_choice.pack()
 
 label_result = t.Label(window, text="Choose...")
