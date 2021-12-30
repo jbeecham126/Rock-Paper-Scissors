@@ -6,7 +6,7 @@ window = t.Tk()
 window.title("Rock, Paper, Scissors")
 window.geometry("400x600")
 
-# Picturesx
+# Pictures
 image_1 = Image.open("rock.jpeg")
 rock_image = ImageTk.PhotoImage(image_1)
 
@@ -30,91 +30,67 @@ def computer():
 def rock():
 
     computer()
+    label_user_choice['image'] = rock_image
 
     # Deal with choices
     if label_tester["text"] == "R":
-        label_user_choice['image'] = rock_image
         label_result['text'] = "TIE"
         label_computer_choice['image'] = rock_image
-        button_rock["state"] = "disabled"
-        button_paper["state"] = "disabled"
-        button_scissors["state"] = "disabled"
+        button_rock["state"] = button_paper["state"] = button_scissors["state"] = "disabled"
         button_reset["state"] = "normal"
     elif label_tester["text"] == "P":
-        label_user_choice['image'] = rock_image
         label_result['text'] = "COMPUTER WINS"
         label_computer_choice['image'] = paper_image
-        button_rock["state"] = "disabled"
-        button_paper["state"] = "disabled"
-        button_scissors["state"] = "disabled"
+        button_rock["state"] = button_paper["state"] = button_scissors["state"] = "disabled"
         button_reset["state"] = "normal"
     elif label_tester["text"] == "S":
-        label_user_choice['image'] = rock_image
         label_result['text'] = "YOU WIN"
         label_computer_choice['image'] = scissors_image
-        button_rock["state"] = "disabled"
-        button_paper["state"] = "disabled"
-        button_scissors["state"] = "disabled"
+        button_rock["state"] = button_paper["state"] = button_scissors["state"] = "disabled"
         button_reset["state"] = "normal"
 
 def paper():
 
     computer()
+    label_user_choice["image"] = paper_image
 
     # Deal with choices
     if label_tester["text"] == "R":
-        label_user_choice['image'] = paper_image
         label_result['text'] = "YOU WIN"
         label_computer_choice['image'] = rock_image
-        button_rock["state"] = "disabled"
-        button_paper["state"] = "disabled"
-        button_scissors["state"] = "disabled"
+        button_rock["state"] = button_paper["state"] = button_scissors["state"] = "disabled"
         button_reset["state"] = "normal"
     elif label_tester["text"] == "P":
-        label_user_choice['image'] = paper_image
         label_result['text'] = "TIE"
         label_computer_choice['image'] = paper_image
-        button_rock["state"] = "disabled"
-        button_paper["state"] = "disabled"
-        button_scissors["state"] = "disabled"
+        button_rock["state"] = button_paper["state"] = button_scissors["state"] = "disabled"
         button_reset["state"] = "normal"
     elif label_tester["text"] == "S":
-        label_user_choice['text'] = paper_image
         label_result['text'] = "COMPUTER WINS"
         label_computer_choice['image'] = scissors_image
-        button_rock["state"] = "disabled"
-        button_paper["state"] = "disabled"
-        button_scissors["state"] = "disabled"
+        button_rock["state"] = button_paper["state"] = button_scissors["state"] = "disabled"
         button_reset["state"] = "normal"
 
 def scissors():
 
     computer()
+    label_user_choice["image"] = scissors_image
 
     # Deal with choices
     if label_tester["text"] == "R":
-        label_user_choice['image'] = scissors_image
         label_result['text'] = "COMPUTER WINS"
         label_computer_choice['image'] = rock_image
-        button_rock["state"] = "disabled"
-        button_paper["state"] = "disabled"
-        button_scissors["state"] = "disabled"
+        button_rock["state"] = button_paper["state"] = button_scissors["state"] = "disabled"
         button_reset["state"] = "normal"
     elif label_tester["text"] == "P":
-        label_user_choice['image'] = scissors_image
         label_result['text'] = "YOU WIN"
         label_computer_choice['image'] = paper_image
-        button_rock["state"] = "disabled"
-        button_paper["state"] = "disabled"
-        button_scissors["state"] = "disabled"
+        button_rock["state"] = button_paper["state"] = button_scissors["state"] = "disabled"
         button_reset["state"] = "normal"
     elif label_tester["text"] == "S":
-        label_user_choice['image'] = scissors_image
         label_result['text'] = "TIE"
         label_computer_choice['image'] = scissors_image
-        button_rock["state"] = "disabled"
-        button_paper["state"] = "disabled"
-        button_scissors["state"] = "disabled"
+        button_rock["state"] = button_paper["state"] = button_scissors["state"] = "disabled"
         button_reset["state"] = "normal"
 
 def reset():
@@ -123,9 +99,7 @@ def reset():
     label_computer_choice['image'] = ""
     label_user_choice['image'] = ""
     label_result['text'] = "Choose..."
-    button_rock["state"] = "normal"
-    button_paper["state"] = "normal"
-    button_scissors["state"] = "normal"
+    button_rock["state"] = button_paper["state"] = button_scissors["state"] = "normal"
     button_reset["state"] = "disabled"
 
 # Create Widgets
