@@ -7,14 +7,11 @@ window.title("Rock, Paper, Scissors")
 window.geometry("400x600")
 
 # Pictures
-image_1 = Image.open("rock.jpeg")
-rock_image = ImageTk.PhotoImage(image_1)
+rock_image = ImageTk.PhotoImage(Image.open('rock.jpeg').resize((100, 100)))
 
-image_2 = Image.open("paper.jpeg")
-paper_image = ImageTk.PhotoImage(image_2)
+paper_image = ImageTk.PhotoImage(Image.open('paper.jpeg').resize((100, 100)))
 
-image_3 = Image.open("scissors.png")
-scissors_image = ImageTk.PhotoImage(image_3)
+scissors_image = ImageTk.PhotoImage(Image.open('scissors.png').resize((100, 100)))
 
 # Create Functions
 def computer():
