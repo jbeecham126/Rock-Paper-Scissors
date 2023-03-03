@@ -110,16 +110,16 @@ def reset():
     button_reset["state"] = "disabled"
 
 # Create Widgets
-button_rock = tkinter.Button(window, text="Rock", command = rock)
+button_rock = tkinter.Button(window, text="Rock", command=rock)
 button_rock.pack()
 
-button_paper = tkinter.Button(window, text="Paper", command = paper)
+button_paper = tkinter.Button(window, text="Paper", command=paper)
 button_paper.pack()
 
-button_scissors = tkinter.Button(window, text="Scissors", command = scissors)
+button_scissors = tkinter.Button(window, text="Scissors", command=scissors)
 button_scissors.pack()
 
-label_user_choice = tkinter.Label(window, image="")
+label_user_choice = tkinter.Label(window, text="")
 label_user_choice.pack()
 
 user_choice_pic = tkinter.Label(window, image="")
@@ -134,7 +134,7 @@ computer_choice_pic.pack()
 label_result = tkinter.Label(window, text="Choose...")
 label_result.pack()
 
-button_reset = tkinter.Button(window, text="Reset", command = reset)
+button_reset = tkinter.Button(window, text="Reset", command=reset)
 button_reset.pack()
 
 window.mainloop()
