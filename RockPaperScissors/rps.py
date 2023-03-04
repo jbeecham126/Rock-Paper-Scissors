@@ -11,23 +11,28 @@ window.geometry("400x600")
 rock_image = ImageTk.PhotoImage(Image.open('rock.jpeg').resize((100, 100)))
 paper_image = ImageTk.PhotoImage(Image.open('paper.jpeg').resize((100, 100)))
 scissors_image = ImageTk.PhotoImage(Image.open('scissors.png').resize((100, 100)))
+images = (rock_image, paper_image, scissors_image)
+outcomes = {
+    ("Rock", "Paper"): "COMPUTER WINS",
+    ("Rock", "Scissors"): "YOU WIN",
+    ("Paper", "Rock"): "YOU WIN",
+    ("Paper", "Scissors"): "COMPUTER WINS",
+    ("Scissors", "Rock"): "COMPUTER WINS",
+    ("Scissors", "Paper"): "YOU WIN",
+    ("Rock", "Rock"): "TIE",
+    ("Paper", "Paper"): "TIE",
+    ("Scissors", "Scissors"): "TIE",
+}
 
 # Functions
 # Function that randomly chooses computer's choice
 def computer():
-
-    random_number = random.randint(1, 3)
-    if random_number == 1:
-        label_computer_choice["text"] = "Computer Chooses Rock"
-        computer_choice_pic['image'] = rock_image
-
-    elif random_number == 2:
-        label_computer_choice["text"] = "Computer Chooses Paper"
-        computer_choice_pic['image'] = paper_image
-
-    elif random_number == 3:
-        label_computer_choice["text"] = "Computer Chooses Scissors"
-        computer_choice_pic['image'] = scissors_image
+    moves = ("Rock", "Paper", "Scissors")
+    index = random.randint(0, 2)
+    move = moves[index]
+    label_computer_choice["text"] = f"Computer chooses {move}"
+    computer_choice_pic["image"] = images[index]
+    return move
 
 # Function for if player chooses rock
 def rock():
@@ -37,21 +42,15 @@ def rock():
     button_reset["state"] = "normal"
 
     # Runs computer choice
-    computer()
+    computer_move = computer()
 
     # Changes user selection and image to rock
+    user_move = "Rock"
     user_choice_pic['image'] = rock_image
-    label_user_choice["text"] = "Player Chooses Rock"
+    label_user_choice["text"] = f"Player Chooses {user_move}"
 
     # Deal with choices
-    if label_computer_choice["text"] == "Computer Chooses Rock":
-        label_result['text'] = "TIE"
-
-    elif label_computer_choice["text"] == "Computer Chooses Paper":
-        label_result['text'] = "COMPUTER WINS"
-
-    elif label_computer_choice["text"] == "Computer Chooses Scissors":
-        label_result['text'] = "YOU WIN"
+    label_result["text"] = outcomes[(user_move, computer_move)]
 
 # Function for if player chooses paper
 def paper():
@@ -61,45 +60,33 @@ def paper():
     button_reset["state"] = "normal"
 
     # Runs computer choice
-    computer()
+    computer_move = computer()
 
     # Changes user selection and image to rock
+    user_move = "Paper"
     user_choice_pic['image'] = paper_image
-    label_user_choice["text"] = "Player Chooses Paper"
+    label_user_choice["text"] = f"Player Chooses {user_move}"
 
     # Deal with choices
-    if label_computer_choice["text"] == "Computer Chooses Rock":
-        label_result['text'] = "YOU WIN"
-
-    elif label_computer_choice["text"] == "Computer Chooses Paper":
-        label_result['text'] = "TIE"
-
-    elif label_computer_choice["text"] == "Computer Chooses Scissors":
-        label_result['text'] = "COMPUTER WINS"
+    label_result["text"] = outcomes[(user_move, computer_move)]
 
 # Function for if player chooses scissors
 def scissors():
 
-   # Disables all buttons except reset button
+    # Disables all buttons except reset button
     button_rock["state"] = button_paper["state"] = button_scissors["state"] = "disabled"
     button_reset["state"] = "normal"
 
     # Runs computer choice
-    computer()
+    computer_move = computer()
 
     # Changes user selection and image to rock
+    user_move = "Scissors"
     user_choice_pic['image'] = scissors_image
-    label_user_choice["text"] = "Player Chooses Scissors"
+    label_user_choice["text"] = f"Player Chooses {user_move}"
 
     # Deal with choices
-    if label_computer_choice["text"] == "Computer Chooses Rock":
-        label_result['text'] = "COMPUTER WINS"
-
-    elif label_computer_choice["text"] == "Computer Chooses Paper":
-        label_result['text'] = "YOU WIN"
-
-    elif label_computer_choice["text"] == "Computer Chooses Scissors":
-        label_result['text'] = "TIE"
+    label_result["text"] = outcomes[(user_move, computer_move)]
 
 # Resets entire game
 def reset():
