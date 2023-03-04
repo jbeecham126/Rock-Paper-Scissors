@@ -30,71 +30,85 @@ def computer():
     moves = ("Rock", "Paper", "Scissors")
     index = random.randint(0, 2)
     move = moves[index]
-    label_computer_choice["text"] = f"Computer chooses {move}"
-    computer_choice_pic["image"] = images[index]
+    label_computer_choice.config(text=f"Computer chooses {move}")
+    computer_choice_pic.config(image=images[index])
     return move
 
 # Function for if player chooses rock
 def rock():
 
     # Disables all buttons except reset button
-    button_rock["state"] = button_paper["state"] = button_scissors["state"] = "disabled"
-    button_reset["state"] = "normal"
+    button_rock.config(state=tkinter.DISABLED)
+    button_paper.config(state=tkinter.DISABLED)
+    button_scissors.config(state=tkinter.DISABLED)
+    button_reset.config(state=tkinter.NORMAL)
 
     # Runs computer choice
     computer_move = computer()
 
     # Changes user selection and image to rock
     user_move = "Rock"
-    user_choice_pic['image'] = rock_image
-    label_user_choice["text"] = f"Player Chooses {user_move}"
+    user_choice_pic.config(image=rock_image)
+    label_user_choice.config(text=f"Player Chooses {user_move}")
 
     # Deal with choices
-    label_result["text"] = outcomes[(user_move, computer_move)]
+    label_result.config(text=outcomes[(user_move, computer_move)])
 
 # Function for if player chooses paper
 def paper():
 
     # Disables all buttons except reset button
-    button_rock["state"] = button_paper["state"] = button_scissors["state"] = "disabled"
-    button_reset["state"] = "normal"
+    button_rock.config(state=tkinter.DISABLED)
+    button_paper.config(state=tkinter.DISABLED)
+    button_scissors.config(state=tkinter.DISABLED)
+    button_reset.config(state=tkinter.NORMAL)
 
     # Runs computer choice
     computer_move = computer()
 
     # Changes user selection and image to rock
     user_move = "Paper"
-    user_choice_pic['image'] = paper_image
-    label_user_choice["text"] = f"Player Chooses {user_move}"
+    user_choice_pic.config(image=paper_image)
+    label_user_choice.config(text=f"Player Chooses {user_move}")
 
     # Deal with choices
-    label_result["text"] = outcomes[(user_move, computer_move)]
+    label_result.config(text=outcomes[(user_move, computer_move)])
 
 # Function for if player chooses scissors
 def scissors():
 
     # Disables all buttons except reset button
-    button_rock["state"] = button_paper["state"] = button_scissors["state"] = "disabled"
-    button_reset["state"] = "normal"
+    button_rock.config(state=tkinter.DISABLED)
+    button_paper.config(state=tkinter.DISABLED)
+    button_scissors.config(state=tkinter.DISABLED)
+    button_reset.config(state=tkinter.NORMAL)
 
     # Runs computer choice
     computer_move = computer()
 
     # Changes user selection and image to rock
     user_move = "Scissors"
-    user_choice_pic['image'] = scissors_image
-    label_user_choice["text"] = f"Player Chooses {user_move}"
+    user_choice_pic.config(image=scissors_image)
+    label_user_choice.config(text=f"Player Chooses {user_move}")
 
     # Deal with choices
-    label_result["text"] = outcomes[(user_move, computer_move)]
+    label_result.config(text=outcomes[(user_move, computer_move)])
 
 # Resets entire game
 def reset():
-    computer_choice_pic['image'] = user_choice_pic['image'] = ""
-    label_computer_choice["text"] = label_user_choice["text"] = ""
-    label_result['text'] = "Choose..."
-    button_rock["state"] = button_paper["state"] = button_scissors["state"] = "normal"
-    button_reset["state"] = "disabled"
+
+    # Enables all buttons except reset button
+    button_rock.config(state=tkinter.NORMAL)
+    button_paper.config(state=tkinter.NORMAL)
+    button_scissors.config(state=tkinter.NORMAL)
+    button_reset.config(state=tkinter.DISABLED)
+
+    # Clears images and text labels
+    computer_choice_pic.config(image="")
+    user_choice_pic.config(image="")
+    label_result.config(text="Choose...")
+    label_computer_choice.config(text="")
+    label_user_choice.config(text="")
 
 # Create Widgets
 button_rock = tkinter.Button(window, text="Rock", command=rock)
